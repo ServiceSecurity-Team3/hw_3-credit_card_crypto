@@ -1,4 +1,6 @@
+# Substitution Cipher
 module SubstitutionCipher
+  # Encrypt/Decrypt using Caesar
   module Caesar
     # Encrypts document using key
     # Arguments:
@@ -6,9 +8,8 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.encrypt(document, key)
-      # TODO: encrypt string using caesar cipher
-      alphabet = (('A'..'Z').to_a + ('a'..'z').to_a).join
-      document.to_s.chars.map { |e| alphabet.include?(e) ? (e.ord + key).chr : e }.join
+      to_num = document.to_s.chars.map { |e| (e.ord + key).chr }
+      to_num.join
     end
 
     # Decrypts String document using integer key
@@ -17,12 +18,12 @@ module SubstitutionCipher
     #   key: Fixnum (integer)
     # Returns: String
     def self.decrypt(document, key)
-      # TODO: decrypt string using caesar cipher
-      alphabet = (('A'..'Z').to_a + ('a'..'z').to_a).join
-      document.to_s.chars.map { |e| alphabet.include?(e) ? (e.ord - key).chr : e }.join
+      to_alphabet = document.to_s.chars.map { |e| (e.ord - key).chr }
+      to_alphabet.join
     end
   end
 
+  # Encrypt/Decrypt using Permutation
   module Permutation
     # Encrypts document using key
     # Arguments:
