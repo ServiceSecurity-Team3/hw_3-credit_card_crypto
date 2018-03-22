@@ -29,9 +29,7 @@ module DoubleTranspositionCipher
     sort_columns.map(&:join).join('').delete('♢')
   end
 
-  private
-
-  def create_matrix(text)
+  def self.create_matrix(text)
     row_col_size = Math.sqrt(text.size).ceil
     matrix = text.chars.each_slice(row_col_size).to_a
     [row_col_size, matrix]
