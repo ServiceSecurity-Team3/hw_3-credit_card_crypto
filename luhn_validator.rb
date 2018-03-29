@@ -7,9 +7,7 @@ module LuhnValidator
   def validate_checksum
     nums_a = number.to_s.chars.map(&:to_i)
     check_number = nums_a.pop
-
     check_sum = self.check_sum(nums_a)
-
     if check_number.zero?
       (check_sum % 10).zero?
     else
